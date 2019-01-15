@@ -35,12 +35,13 @@ var loginBtn = $("#login-btn")
 loginBtn.on("click", e => {
     e.preventDefault();
     //get values for email & password
-    var email = $("#email-input").val();
-    var password = $("#password-input").val();
+    var email = $("#email-input").val().trim();
+    var password = $("#password-input").val().trim();
+
 
     //log in useing firebase function
     var promise = auth.signInWithEmailAndPassword(email, password);
-    promise.catch(e => console.log(e.message))
+    promise.catch(e => console.log(e.message));
     console.log(promise);
     checkUser();
 });
